@@ -3,7 +3,7 @@
 </div>
 
 Shuffle and set wallpaper for desktop and with a blurred one on lock &amp; login screen
-
+Tested on Ubuntu 18.04 (LTS) and 19.10 (Latest Public release as of now). Supports default Nautilus File Manager.
 
 ## Installation:
 ```
@@ -31,3 +31,17 @@ with
   background-position: center;
 }
 ```
+
+## Use
+Images can be:
+- `SetWallpaperNow`: Applied as wallpaper now
+- `SetAsFavourite`: Added to favourite to shuffle and apply whenever required
+- `SetAsDefault`: Set a default wallpaper to revert to easily
+
+by right clicking any image on Nautilus
+
+- To shuffle and apply an image, run `update-wallpaper`
+- To revert to the default one, run `set-default-wallpaper`
+
+## Setting custom key-bindings:
+Custom key bindings comes very handy whenever using those commands. You can set custom bindings with custom scripts easily. For help, see [this](https://askubuntu.com/a/331632). (*For example I have set `Ctrl+Alt+s` for `update-wallpaper` and `Ctrl+Alt+d` for `set-default-wallpaper`*)
