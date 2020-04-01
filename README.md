@@ -3,6 +3,11 @@
 </div>
 
 Shuffle and set wallpaper for desktop and with a blurred one on lock &amp; login screen
+
+## Example
+![Sample-ShuffleWallpaper](https://user-images.githubusercontent.com/32809272/78132728-e2c97480-743a-11ea-92b5-b8a64496a53e.png)
+
+
 Tested on Ubuntu 18.04 (LTS) and 19.10 (Latest Public release as of now). Supports default Nautilus File Manager.
 
 ## Installation:
