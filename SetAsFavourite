@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Copy selected file to choices folder "$HOME/.cache/ShuffleWallpaper/choices/"
+while [ $# -gt 0 ]; do
+    FILE="$1"
+    if ! file "$FILE" |grep -qE 'image|bitmap'; then
+  		notify-send "File '$FILE' is not an image"
+  		exit 1
+	fi
+    cp -r "$FILE" $HOME/.cache/ShuffleWallpaper/choices/
+    shift
+done
+
+exit 0	

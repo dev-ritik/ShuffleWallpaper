@@ -1,0 +1,22 @@
+#!/bin/bash
+
+rm -rf $HOME/.cache/ShuffleWallpaper/tmp/*
+
+# Copy selected file to temp folder "$HOME/.cache/ShuffleWallpaper/tmp/"
+while [ $# -gt 0 ]; do
+    FILE="$1"
+    if ! file "$FILE" |grep -qE 'image|bitmap'; then
+  		notify-send "File '$FILE' is not an image"
+  		exit 1
+	fi
+    cp -r "$FILE" $HOME/.cache/ShuffleWallpaper/tmp
+    shift
+done
+
+mv -f $HOME/.cache/ShuffleWallpaper/tmp/* $HOME/.cache/ShuffleWallpaper/tmp/current.jpg
+gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/.cache/ShuffleWallpaper/tmp/current.jpg"
+pkexec convert -resize 1440 -quality 100 -brightness-contrast -10x-15 -blur 0x30 $HOME/.cache/ShuffleWallpaper/tmp/* /usr/share/backgrounds/blur-background.jpg
+
+gsettings set org.gnome.desktop.screensaver picture-uri "file:///usr/share/backgrounds/blur-background.jpg"
+
+exit 0

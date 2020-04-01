@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/.cache/ShuffleWallpaper/default/default.jpg"
+# Make your wallpaper blurry
+pkexec convert -resize 1440 -quality 100 -brightness-contrast -10x-15 -blur 0x30 $HOME/.cache/ShuffleWallpaper/default/default.jpg /usr/share/backgrounds/blur-background.jpg
+gsettings set org.gnome.desktop.screensaver picture-uri "file:///usr/share/backgrounds/blur-background.jpg"
+
+exit 0

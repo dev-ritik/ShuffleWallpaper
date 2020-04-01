@@ -1,0 +1,13 @@
+#!/bin/bash
+
+rm -rf $HOME/.cache/ShuffleWallpaper/tmp/*
+
+# Select 1 randomly
+find $HOME/.cache/ShuffleWallpaper/choices -type f | shuf -n1 | xargs -I '{}' cp -f {} $HOME/.cache/ShuffleWallpaper/tmp/current.jpg
+
+# Make your wallpaper blurry
+gsettings set org.gnome.desktop.background picture-uri "file:///$HOME/.cache/ShuffleWallpaper/tmp/current.jpg"
+pkexec convert -resize 1440 -quality 100 -brightness-contrast -10x-15 -blur 0x30 $HOME/.cache/ShuffleWallpaper/tmp/* /usr/share/backgrounds/blur-background.jpg
+gsettings set org.gnome.desktop.screensaver picture-uri "file:///usr/share/backgrounds/blur-background.jpg"
+
+exit 0
