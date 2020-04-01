@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p ~/.local/bin/
+
 cp $(pwd)/bin/{SetAsDefault,SetAsFavourite,SetWallpaperNow} ~/.local/share/nautilus/scripts/
 cp $(pwd)/bin/{set-default-wallpaper,update-wallpaper} ~/.local/bin/
 
